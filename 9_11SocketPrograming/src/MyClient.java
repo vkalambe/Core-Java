@@ -42,6 +42,7 @@ public class MyClient extends JFrame implements ActionListener{
 		}
 	public static void main(String[] args) {
      MyClient Cobj=new MyClient();
+     Cobj.setTitle("client");
      Cobj.setVisible(true);
     Cobj.setSize(500, 500);
 
@@ -62,6 +63,7 @@ public class MyClient extends JFrame implements ActionListener{
 				String sendTxt=txt.getText();
 				try {
 					ClientOutgoing.writeUTF(sendTxt);
+					area.setText(sendTxt);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

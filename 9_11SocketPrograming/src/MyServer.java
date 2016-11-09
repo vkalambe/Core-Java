@@ -18,6 +18,7 @@ public class MyServer extends JFrame  {
  DataOutputStream serverOutcoming;
  public MyServer() {
 	 setLayout(null);
+	 area=new JTextArea();
 	 add(area);
 	 area.setBounds(0, 0, 400, 400);
 	 try {
@@ -33,6 +34,7 @@ public class MyServer extends JFrame  {
  }
 	public static void main(String[] args) {
      MyServer serverObj=new MyServer();
+     serverObj.setTitle("server");
      serverObj.setVisible(true);
      serverObj.setSize(500, 500);
  try {
@@ -43,7 +45,7 @@ public class MyServer extends JFrame  {
 	{
 		if(serverObj.serverIncoming.available() > 1)
 		{
-			serverObj.area.setText(serverObj.area.getText()+serverObj.serverIncoming);
+			serverObj.area.setText(serverObj.serverIncoming.readUTF());
 		}
 	}
 } catch (IOException e) {
